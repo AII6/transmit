@@ -14,6 +14,7 @@ ser.parity = "N"  # 设置校验位
 def quit(signum, frame):
     data = "999\r\n"
     for i in range(5):
-        ser.write(data.encode('gbk'))
+        # ser.write(data.encode('gbk'))
+        print(data)
     print("exit!!!")
     sys.exit(0)     # 手动终止程序
