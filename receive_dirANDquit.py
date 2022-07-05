@@ -1,6 +1,7 @@
 import socket
 from mySerial import ser, quit
 import numpy as np
+import signal
 
 socket_list = []
 s = socket.socket()
@@ -10,9 +11,8 @@ s.listen()
 conn, addr = s.accept()
 print(str(addr) + ' Joined!')
 while True:
-
     content = conn.recv(5)
-
+    signal.signal(signal.SIGINT, quit)
     if content is None:
         break
     else:
